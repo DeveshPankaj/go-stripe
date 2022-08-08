@@ -15,25 +15,22 @@ $ export STRIPE_KEY=<stripe account key>
 
 
 # APIs
-- Create intent for payment
-  
+## Create intent for payment
   POST `/api/v1/create_intent`
 
 
-- Capture the created intent 
-  
-    POST `/api/v1/capture_intent/:payment_intent`
+## Capture the created intent 
+  POST `/api/v1/capture_intent/:payment_intent`
   
 
-- Create a refund for the created intent
-  
+## Create a refund for the created intent
     POST `/api/v1/create_refund/:payment_intent`
   
 
-- Get a List of all intents
-  
+## Get a List of all intents
     GET `/api/v1/get_intents`
 
 
-- Payment UI
-  /checkout.html?clientSecret=<[`clientSecret`](#APIs.Create intent for payment)>
+## Payment UI
+  /checkout.html?clientSecret=<[`clientSecret`](#APIs)>
+  
