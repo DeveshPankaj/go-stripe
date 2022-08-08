@@ -1,0 +1,129 @@
+{
+	"info": {
+		"_postman_id": "2f0420de-b6f5-44e4-8242-d472d8ae1764",
+		"name": "GO-Stripe",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4601733"
+	},
+	"item": [
+		{
+			"name": "Create intent for payment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"amount\": 200000,\n    \"currency\": \"inr\",\n    \"description\": \"Testing ...\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:4000/api/v1/create_intent",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"v1",
+						"create_intent"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Capture the created intent",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:4000/api/v1/capture_intent/:payment_intent",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"v1",
+						"capture_intent",
+						":payment_intent"
+					],
+					"variable": [
+						{
+							"key": "payment_intent",
+							"value": "pi_3LUQRNSB2jO4Xsgs1o1i77Y7"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a refund for the created intent",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:4000/api/v1/create_refund/:id",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"v1",
+						"create_refund",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "pi_3LUOsQSB2jO4Xsgs0Vaven7O"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a List of all intents",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:4000/api/v1/get_intents",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"v1",
+						"get_intents"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
